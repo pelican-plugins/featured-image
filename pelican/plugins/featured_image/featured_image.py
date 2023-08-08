@@ -1,5 +1,4 @@
 from bs4 import BeautifulSoup
-import six
 
 from pelican import signals
 from pelican.contents import Article, Page
@@ -25,7 +24,7 @@ def images_extraction(instance):
         if len(images) > 0:
             # set _summary field which is based on metadata. summary field is
             # only based on article's content and not settable
-            instance._summary = six.text_type(soup)
+            instance._summary = str(soup)
 
         # If there are no image in summary, look for it in the content body
         if not featured_image:

@@ -10,17 +10,17 @@ def images_extraction(instance):
     """Extract images from content."""
     featured_image = None
     if type(instance) in (Article, Page):
-        if 'image' in instance.metadata:
-            featured_image = instance.metadata['image']
+        if "image" in instance.metadata:
+            featured_image = instance.metadata["image"]
 
         # Process Summary:
         # If summary contains images, extract one to be the featured_image
         # and remove images from summary
-        soup = BeautifulSoup(instance.summary, 'html.parser')
-        images = soup.find_all('img')
+        soup = BeautifulSoup(instance.summary, "html.parser")
+        images = soup.find_all("img")
         for i in images:
             if not featured_image:
-                featured_image = i['src']
+                featured_image = i["src"]
             i.extract()
         if len(images) > 0:
             # set _summary field which is based on metadata. summary field is
@@ -29,16 +29,16 @@ def images_extraction(instance):
 
         # If there are no image in summary, look for it in the content body
         if not featured_image:
-            soup = BeautifulSoup(instance._content, 'html.parser')
-            imageTag = soup.find('img')
+            soup = BeautifulSoup(instance._content, "html.parser")
+            imageTag = soup.find("img")
             if imageTag:
-                featured_image = imageTag['src']
+                featured_image = imageTag["src"]
 
         # Set the attribute to content instance
         instance.featured_image = featured_image
-        instance.featured_alt = instance.metadata.get('alt', None)
-        instance.featured_link = instance.metadata.get('link', None)
-        instance.featured_caption = instance.metadata.get('caption', None)
+        instance.featured_alt = instance.metadata.get("alt", None)
+        instance.featured_link = instance.metadata.get("link", None)
+        instance.featured_caption = instance.metadata.get("caption", None)
 
 
 def run_plugin(generators):

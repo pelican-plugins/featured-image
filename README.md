@@ -1,29 +1,24 @@
-# Summary
+Featured Image: A Plugin for Pelican
+====================================
 
-This plugin extracts a representative image (i.e, featured image) from the summary or content of an article or a page, if not specified in the metadata.
+[![Build Status](https://img.shields.io/github/actions/workflow/status/pelican-plugins/featured-image/main.yml?branch=main)](https://github.com/pelican-plugins/featured-image/actions)
+[![PyPI Version](https://img.shields.io/pypi/v/pelican-featured-image)](https://pypi.org/project/pelican-featured-image/)
+[![Downloads](https://img.shields.io/pypi/dm/pelican-featured-image)](https://pypi.org/project/pelican-featured-image/)
+![License](https://img.shields.io/pypi/l/pelican-featured-image?color=blue)
 
-The plugin also removes any images from the summary after extraction to avoid duplication.
+This Pelican plugin extracts an image from the summary or content of an article or page if not already specified in content metadata.
 
-It allows the flexibility on where and how to display the featured image of an article together with its summary in a template page. For example, the article metadata can be displayed in thumbnail format, in which there is a short summary and an image. The layout of the summary and the image can be varied for aesthetical purpose. It doesn't have to depend on article's content format.
+Installation
+------------
 
-## Installation
+This plugin can be installed via:
 
-This plugin requires `BeautifulSoup`:
+    python -m pip install pelican-featured-image
 
-```bash
-pip install beautifulsoup4
-```
+As long as you have not explicitly added a `PLUGINS` setting to your Pelican settings file, then the newly-installed plugin should be automatically detected and enabled. Otherwise, you must add `featured_image` to your existing `PLUGINS` list. For more information, please see the [How to Use Plugins](https://docs.getpelican.com/en/latest/plugins.html#how-to-use-plugins) documentation.
 
-To enable, add the following to your `settings.py`:
-
-```python
-PLUGIN_PATH = 'path/to/pelican-plugins'
-PLUGINS = ["representative_image"]
-```
-
-`PLUGIN_PATH` can be a path relative to your settings file or an absolute path.
-
-## Usage
+Usage
+-----
 
 To override the default behavior of selecting the first image in the article's summary or content, set the image property the article's metadata to the URL of the image to display, e.g:
 
@@ -59,3 +54,18 @@ To include a representative image in an article add the following to the templat
     <img src="{{ article.featured_image }}">
 {% endif %}
 ```
+
+Contributing
+------------
+
+Contributions are welcome and much appreciated. Every little bit helps. You can contribute by improving the documentation, adding missing features, and fixing bugs. You can also help out by reviewing and commenting on [existing issues][].
+
+To start contributing to this plugin, review the [Contributing to Pelican][] documentation, beginning with the **Contributing Code** section.
+
+[existing issues]: https://github.com/pelican-plugins/featured-image/issues
+[Contributing to Pelican]: https://docs.getpelican.com/en/latest/contribute.html
+
+License
+-------
+
+This project is licensed under the AGPL-3.0 license.

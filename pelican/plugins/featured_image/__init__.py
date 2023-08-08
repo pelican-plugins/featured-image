@@ -1,1 +1,1 @@
-from .representative_image import *  # noqa
+from .featured_image import *  # NOQA

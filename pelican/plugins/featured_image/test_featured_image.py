@@ -1,9 +1,10 @@
-#!/bin/sh
 import unittest
 
-import representative_image
 from jinja2.utils import generate_lorem_ipsum
+
 from pelican.contents import Article, Page
+
+from . import featured_image
 
 # Generate content with image
 TEST_CONTENT_IMAGE_URL = 'https://testimage.com/test.jpg'
@@ -14,11 +15,12 @@ TEST_SUMMARY_WITHIMAGE = TEST_SUMMARY_WITHOUTIMAGE + '<img src="' + TEST_SUMMARY
 TEST_CUSTOM_IMAGE_URL = 'https://testimage.com/custom.jpg'
 
 
-class TestRepresentativeImage(unittest.TestCase):
+class TestFeaturedImage(unittest.TestCase):
+    """Test the Featured Image plugin."""
 
     def setUp(self):
-        super(TestRepresentativeImage, self).setUp()
-        representative_image.register()
+        super().setUp()
+        featured_image.register()
 
     def test_extract_image_from_content(self):
         args = {

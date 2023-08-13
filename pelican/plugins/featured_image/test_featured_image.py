@@ -28,7 +28,6 @@ class TestFeaturedImage(unittest.TestCase):
 
     def setUp(self):
         super().setUp()
-        featured_image.register()
 
     def test_extract_image_from_content(self):
         args = {
@@ -39,6 +38,7 @@ class TestFeaturedImage(unittest.TestCase):
         }
 
         article = Article(**args)
+        featured_image.images_extraction(article)
         self.assertEqual(article.featured_image, TEST_CONTENT_IMAGE_URL)
 
     def test_extract_image_from_summary(self):
@@ -50,8 +50,9 @@ class TestFeaturedImage(unittest.TestCase):
         }
 
         article = Article(**args)
+        featured_image.images_extraction(article)
         self.assertEqual(article.featured_image, TEST_SUMMARY_IMAGE_URL)
-        self.assertEqual(article.summary, TEST_SUMMARY_WITHOUTIMAGE)
+        self.assertEqual(article._summary, TEST_SUMMARY_WITHOUTIMAGE)
 
     def test_extract_image_from_summary_with_custom_image(self):
         args = {
@@ -63,8 +64,9 @@ class TestFeaturedImage(unittest.TestCase):
         }
 
         article = Article(**args)
+        featured_image.images_extraction(article)
         self.assertEqual(article.featured_image, TEST_CUSTOM_IMAGE_URL)
-        self.assertEqual(article.summary, TEST_SUMMARY_WITHOUTIMAGE)
+        self.assertEqual(article._summary, TEST_SUMMARY_WITHOUTIMAGE)
 
     def test_extract_image_from_page_summary_with_custom_image(self):
         args = {
@@ -75,8 +77,9 @@ class TestFeaturedImage(unittest.TestCase):
             },
         }
         page = Page(**args)
+        featured_image.images_extraction(page)
         self.assertEqual(page.featured_image, TEST_CUSTOM_IMAGE_URL)
-        self.assertEqual(page.summary, TEST_SUMMARY_WITHOUTIMAGE)
+        self.assertEqual(page._summary, TEST_SUMMARY_WITHOUTIMAGE)
 
 
 if __name__ == "__main__":

@@ -9,5 +9,3 @@ CHANGELOG
 - Migrate from legacy repo to individual repo under Pelican Plugins organization
 
 Contributed by [Justin Mayer](https://github.com/justinmayer) via [PR #1](https://github.com/pelican-plugins/featured-image/pull/1/)
-
-

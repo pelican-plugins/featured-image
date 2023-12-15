@@ -92,8 +92,6 @@ ignore = [
   "RUF100",  # unused blanket `NOQA` directive
 ]
 
-target-version = "py38"
-
 [tool.ruff.isort]
 combine-as-imports = true
 force-sort-within-sections = true

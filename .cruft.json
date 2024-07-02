@@ -1,0 +1,27 @@
+{
+  "template": "https://github.com/getpelican/cookiecutter-pelican-plugin",
+  "commit": "c62eec36e76767a42a5640831cd602c963b1a332",
+  "checkout": null,
+  "context": {
+    "cookiecutter": {
+      "plugin_name": "Featured Image",
+      "repo_name": "featured-image",
+      "package_name": "featured_image",
+      "distribution_name": "pelican-featured-image",
+      "version": "1.0.0",
+      "description": "Pelican plugin to add a featured image, extracting from summary or content if not specified in metadata",
+      "authors": "{name = \"Justin Mayer\", email = \"entroP@gmail.com\"}, {name = \"Paolo Melchiorre\", email = \"paolo@melchiorre.org\"}, {name = \"Tobias Schmidl\", email = \"tobias@schmidl.dev\"}",
+      "keywords": "\"pelican\", \"plugin\", \"image\", \"graphic\"",
+      "readme": "README.md",
+      "contributing": "CONTRIBUTING.md",
+      "license": "GNU Affero General Public License v3|AGPL-3.0",
+      "repo_url": "https://github.com/pelican-plugins/featured-image",
+      "dev_status": "5 - Production/Stable",
+      "tests_exist": true,
+      "python_version": ">=3.8.1,<4.0",
+      "pelican_version": ">=4.5",
+      "_template": "https://github.com/getpelican/cookiecutter-pelican-plugin"
+    }
+  },
+  "directory": null
+}

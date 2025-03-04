@@ -30,7 +30,7 @@ Tags: pelican, publishing
 Slug: my-super-post
 Author: Alexis Metaireau
 Summary: Short version for index and feeds
-Image: /images/my-super-image.png
+Featured_Image: /images/my-super-image.png
 
 Article content...
 ```

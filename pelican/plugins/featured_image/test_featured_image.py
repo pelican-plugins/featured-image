@@ -41,6 +41,22 @@ class TestFeaturedImage(unittest.TestCase):
         featured_image.images_extraction(article)
         self.assertEqual(article.featured_image, TEST_CONTENT_IMAGE_URL)
 
+    def test_extract_image_from_content_and_img_has_no_src(self):
+        args = {
+            "content": (
+                str(generate_lorem_ipsum(n=3, html=True))
+                + "<img>"
+                + str(generate_lorem_ipsum(n=2, html=True))
+            ),
+            "metadata": {
+                "summary": TEST_SUMMARY_WITHOUTIMAGE,
+            },
+        }
+
+        article = Article(**args)
+        featured_image.images_extraction(article)
+        self.assertEqual(article.featured_image, None)
+
     def test_extract_image_from_summary(self):
         args = {
             "content": TEST_CONTENT,

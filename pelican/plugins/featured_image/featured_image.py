@@ -32,7 +32,7 @@ def images_extraction(instance):
         if not featured_image:
             soup = BeautifulSoup(instance._content, "html.parser")
             imageTag = soup.find("img")
-            if imageTag:
+            if imageTag and imageTag.get("src"):
                 featured_image = imageTag["src"]
 
         # Set the attribute to content instance

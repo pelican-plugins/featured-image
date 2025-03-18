@@ -1,6 +1,13 @@
 CHANGELOG
 =========
 
+1.1.0 - 2025-03-18
+------------------
+
+* Draft articles/pages and hidden articles/pages are now also processed
+* Fix error caused by articles containing `<img>` tags without `src` attributes
+* Python 3.9+ is now required
+
 1.0.0 - 2023-08-14
 ------------------
 
